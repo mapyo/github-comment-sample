@@ -24,7 +24,7 @@ jobs:
           github-comment hide --var target:hoge
       - name: sample comment
         run: |
-          github-comment exec --var target:hoge --config .github/workflows/github-comment.yaml --var hoge -- bash -c "echo hello"
+          github-comment exec --var target:hoge --config .github/workflows/github-comment.yaml -- bash -c "echo hello"
       - name: sample comment2
         run: |
           echo bye | github-comment post -stdin-template
