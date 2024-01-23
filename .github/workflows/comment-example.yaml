@@ -27,7 +27,7 @@ jobs:
           pwd; ls .github/workflows/github-comment.yaml
       - name: sample comment
         run: |
-          github-comment exec -- bash -c "echo hello" -config .github/workflows/github-comment.yaml
+          github-comment exec --config .github/workflows/github-comment.yaml -- bash -c "echo hello"
       - name: sample comment2
         run: |
           echo bye | github-comment post -stdin-template
