@@ -1,0 +1,33 @@
+name: Comment Example
+
+on:
+  pull_request:
+    types: [ opened, synchronize ]
+
+jobs:
+  sample-comment:
+    permissions:
+      pull-requests: write
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: github-comment
+        run: |
+          wget "https://github.com/suzuki-shunsuke/github-comment/releases/download/v6.0.3/github-comment_6.0.3_linux_amd64.tar.gz" -O /tmp/github-comment.tar.gz
+          tar xzf /tmp/github-comment.tar.gz -C /tmp
+          mv /tmp/github-comment /usr/local/bin
+          github-comment --version
+      - name: hide comment
+        run: |
+          github-comment hide -var target:hello
+      - name: sample comment
+        run: |
+          github-comment exec --config .github/workflows/github-comment.yaml -var target:hello -- bash -c "echo hello"
+      - name: sample comment2
+        run: |
+          echo bye | github-comment post -stdin-template -var target:bye
+      - name: sample comment3
+        run: |
+          github-comment exec -var target:foo -- bash -c "echo hello3"

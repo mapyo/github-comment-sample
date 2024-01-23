@@ -1,0 +1,28 @@
+exec:
+  default:
+    - when: true
+      template: |
+        {{.Vars.target}}
+        exit code: {{.ExitCode}}
+
+        ```
+        $ {{.Command}}
+        ```
+
+        Stdout:
+
+        ```
+        {{.Stdout}}
+        ```
+
+        Stderr:
+
+        ```
+        {{.Stderr}}
+        ```
+
+        CombinedOutput:
+
+        ```
+        {{.CombinedOutput}}
+        ```
