@@ -9,6 +9,8 @@ jobs:
     permissions:
       pull-requests: write
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v2
       - name: github-comment
@@ -17,8 +19,9 @@ jobs:
           tar xzf /tmp/github-comment.tar.gz -C /tmp
           mv /tmp/github-comment /usr/local/bin
           github-comment --version
+      - name: hide comment
+        run: |
+          github-comment hide
       - name: sample comment
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo hello | github-comment post -stdin-template
