@@ -16,5 +16,7 @@ jobs:
           mv /tmp/github-comment /usr/local/bin
           github-comment --version
       - name: sample comment
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo hello | github-comment post -stdin-template
