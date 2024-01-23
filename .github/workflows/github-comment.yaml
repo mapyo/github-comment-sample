@@ -1,5 +1,5 @@
 vars:
-  target:
+  target: hoge
 exec:
   default:
     - when: true
