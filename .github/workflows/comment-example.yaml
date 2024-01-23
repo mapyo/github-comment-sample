@@ -21,10 +21,10 @@ jobs:
           github-comment --version
       - name: hide comment
         run: |
-          github-comment hide -var target:hoge
+          github-comment hide -var target:hello
       - name: sample comment
         run: |
-          github-comment exec --config .github/workflows/github-comment.yaml -var target:hoge -- bash -c "echo hello"
+          github-comment exec --config .github/workflows/github-comment.yaml -var target:hello -- bash -c "echo hello"
       - name: sample comment2
         run: |
-          echo bye | github-comment post -stdin-template
+          echo bye | github-comment post -stdin-template -var target:bye
