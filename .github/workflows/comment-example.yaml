@@ -24,7 +24,7 @@ jobs:
           github-comment hide
       - name: sample comment
         run: |
-          github-comment exec -- bash -c "echo hello"
+          github-comment exec -- bash -c "echo hello" -c .github/workflows
       - name: sample comment2
         run: |
           echo bye | github-comment post -stdin-template
