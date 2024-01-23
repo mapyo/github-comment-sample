@@ -30,4 +30,4 @@ jobs:
           echo bye | github-comment post -stdin-template -var target:bye
       - name: sample comment3
         run: |
-          github-comment post -var name:foo
+          github-comment exec -var name:foo -- bash -c "echo hello3"
