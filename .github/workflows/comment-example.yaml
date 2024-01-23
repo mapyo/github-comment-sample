@@ -25,3 +25,6 @@ jobs:
       - name: sample comment
         run: |
           echo hello | github-comment post -stdin-template
+      - name: sample comment2
+        run: |
+          echo bye | github-comment post -stdin-template
