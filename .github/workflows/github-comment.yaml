@@ -1,6 +1,8 @@
 exec:
   default:
     - when: true
+      vars:
+        target: hoge
       template: |
         exit code: {{.ExitCode}}
 
